@@ -222,7 +222,12 @@
                   }
                 ],
                 "resources": {
+				  "requests": {
+				    "cpu": "${CPU_REQUEST}",
+				    "memory": "${MEMORY_REQUEST}"
+				  },
                   "limits": {
+				    "cpu": "${CPU_LIMIT}",
                     "memory": "${MEMORY_LIMIT}"
                   }
                 }
@@ -254,6 +259,27 @@
       "description": "Version of Python image to be used (3.6-ubi8, 3.8-ubi7, 3.8-ubi8, or latest).",
       "value": "3.8-ubi8",
       "required": true
+    },
+    {
+      "name": "CPU_REQUEST",
+      "displayName": "CPU Request",
+      "required": true,
+      "description": "Request amount of cpu the container can use.",
+      "value": "500m"
+    },
+    {
+      "name": "MEMORY_REQUEST",
+      "displayName": "Memory Request",
+      "required": true,
+      "description": "Request amount of memory the container can use.",
+      "value": "128Mi"
+    },
+    {
+      "name": "CPU_LIMIT",
+      "displayName": "CPU Limit",
+      "required": true,
+      "description": "Maximum amount of cpu the container can use.",
+      "value": "1000m"
     },
     {
       "name": "MEMORY_LIMIT",
